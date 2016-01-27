@@ -20,6 +20,11 @@ describe('Hero', function(){
     hero.eat(pasta);
     expect(hero.health).to.equal(90);
   });
+  it('should lose health if they eat poisoned food', function(){
+    rat.touch(iceCream);
+    hero.eat(iceCream);
+    expect(hero.health).to.equal(85);
+  });
 });
 
 describe('Food', function(){
@@ -36,7 +41,6 @@ describe('Rat', function(){
   });
   it('should be able to touch food and poison it', function(){
     rat.touch(iceCream);
-    console.log(iceCream);
     expect(iceCream.poisoned).to.equal(true);
   });
 });
