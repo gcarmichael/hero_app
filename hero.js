@@ -23,3 +23,5 @@ Hero.prototype = {
 var hero1 = new Hero('Gary', 10, 'pasta');
 
 module.exports.gary = hero1;
+
+//some words and stuff
