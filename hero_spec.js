@@ -1,5 +1,7 @@
 var expect = require('chai').expect;
 
+var Food = require('./food').food;
+
 var hero = require('./hero').gary;
 var cheese = require('./food').cheese;
 var pasta = require('./food').pasta;
@@ -40,9 +42,9 @@ describe('Rat', function(){
       expect(henry.name).to.equal('Henry');
       expect(henry.health).to.equal(1000);
   });
-  it('should be able to touch food and poison it', function(){
+  it('should be able to touch food and poison it, making it\'s energy negative', function(){
     henry.touch(iceCream);
-    expect(iceCream.poisoned).to.equal(true);
+    expect(iceCream.energy).to.equal(-5);
   });
   it('should be able to bite hero and turn him into a wererat', function(){
     henry.bite(hero);

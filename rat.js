@@ -4,7 +4,9 @@ var Rat = function(name, health){
   this.name = name;
   this.health = health;
   this.touch = function(food){
-    food.poisoned = true;
+    if (food.energy > 0 ) {
+      food.energy *= -1;
+    }
   };
   this.bite = function(hero){
     hero.wererat = true;
