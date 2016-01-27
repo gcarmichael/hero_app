@@ -5,6 +5,7 @@ var Hero = function(name, health, favouriteFood){
   this.health = health;
   this.favouriteFood = favouriteFood;
   this.wererat = false;
+  this.hasAntidote = true;
 };
 
 Hero.prototype = {
@@ -24,6 +25,13 @@ Hero.prototype = {
     } else{
       rat.health -= 100;
     };
+  },
+  antidote: function(){
+    if(this.hasAntidote === true){
+      this.wererat = false;
+    } else{
+      console.log(this.name + " has no antidotes! They can't cure their wererat status!");
+    }
   }
 };
 

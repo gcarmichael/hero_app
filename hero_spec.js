@@ -39,6 +39,17 @@ describe('Hero', function(){
     hero.attack(henry);
     expect(henry.health).to.equal(1000);
   });
+  it('should be able to cure their wererat status by using an antidote', function(){
+    hero.wererat = true;
+    hero.antidote();
+    expect(hero.wererat).to.equal(false);
+  });
+  it("shouldn't be able to cure wererat if they don't have any antidotes", function(){
+    hero.wererat = true;
+    hero.hasAntidote = false;
+    hero.antidote();
+    expect(hero.wererat).to.equal(true);
+  })
 });
 
 describe('Food', function(){
