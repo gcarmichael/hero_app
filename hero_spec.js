@@ -28,6 +28,10 @@ describe('Hero', function(){
     hero.eat(iceCream);
     expect(hero.health).to.equal(85);
   });
+  it('should be able to attack rats', function(){
+    hero.attack(henry);
+    expect(henry.health).to.equal(900);
+  });
 });
 
 describe('Food', function(){
@@ -39,6 +43,7 @@ describe('Food', function(){
 
 describe('Rat', function(){
   it('should have health and a name', function(){
+    henry.health = 1000;
       expect(henry.name).to.equal('Henry');
       expect(henry.health).to.equal(1000);
   });
@@ -51,6 +56,7 @@ describe('Rat', function(){
     expect(hero.wererat).to.equal(true);
   });
   it('should be able to split into two, at the cost of half its health', function(){
+    henry.health = 1000;
     var steven = henry.split('Steven');
     expect(henry.health).to.equal(500);
     expect(henry.name).to.equal('Henry');

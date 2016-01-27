@@ -17,11 +17,12 @@ Hero.prototype = {
     } else{
       this.health += food.energy;
     };
+  },
+  attack: function(rat){
+    rat.health -= 100;
   }
 };
 
 var hero1 = new Hero('Gary', 10, 'pasta');
 
 module.exports.gary = hero1;
-
-//some words and stuff
