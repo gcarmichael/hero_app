@@ -1,15 +1,16 @@
 var expect = require('chai').expect;
+
 var hero = require('./hero').gary;
 var cheese = require('./food').cheese;
 var pasta = require('./food').pasta;
-var rat = require('./rat').rat;
+var henry = require('./rat').henry;
 var iceCream = require('./food').iceCream;
 
 describe('Hero', function(){
   it('should have a name, health, and favourite food', function(){
     expect(hero.name).to.equal('Gary', 10, 'pasta');
   });
-  it('should be able to talk and say their own name', function(){
+  it('should be able to talk andd say their own name', function(){
     expect(hero.talk()).to.equal('My name is Gary.');
   });
   it('should be able to eat food, and health should go up by the energy value', function(){
@@ -21,7 +22,7 @@ describe('Hero', function(){
     expect(hero.health).to.equal(90);
   });
   it('should lose health if they eat poisoned food', function(){
-    rat.touch(iceCream);
+    henry.touch(iceCream);
     hero.eat(iceCream);
     expect(hero.health).to.equal(85);
   });
@@ -36,11 +37,21 @@ describe('Food', function(){
 
 describe('Rat', function(){
   it('should have health and a name', function(){
-      expect(rat.name).to.equal('Henry');
-      expect(rat.health).to.equal(1000);
+      expect(henry.name).to.equal('Henry');
+      expect(henry.health).to.equal(1000);
   });
   it('should be able to touch food and poison it', function(){
-    rat.touch(iceCream);
+    henry.touch(iceCream);
     expect(iceCream.poisoned).to.equal(true);
+  });
+  it('should be able to bite hero and turn him into a wererat', function(){
+    henry.bite(hero);
+    expect(hero.wererat).to.equal(true);
+  });
+  it('should be able to split into two, at the cost of half its health', function(){
+    var steven = henry.split('Steven');
+    expect(henry.health).to.equal(500);
+    expect(henry.name).to.equal('Henry');
+    expect(steven.name).to.equal('Steven');
   });
 });
