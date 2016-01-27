@@ -1,6 +1,7 @@
 var expect = require('chai').expect;
 var hero = require('./hero').gary;
 var cheese = require('./hero').cheese;
+var pasta = require('./hero').pasta;
 
 describe('Hero', function(){
   it('should have a name, health, and favourite food', function(){
@@ -9,9 +10,13 @@ describe('Hero', function(){
   it('should be able to talk and say their own name', function(){
     expect(hero.talk()).to.equal('My name is Gary.');
   });
-  it('should be abe to eat food, and health should go up by the energy value', function(){
+  it('should be able to eat food, and health should go up by the energy value', function(){
     hero.eat(cheese);
     expect(hero.health).to.equal(60);
+  });
+  it('should have health replenished by 1.5 times if food eaten is favourite', function(){
+    hero.eat(pasta);
+    expect(hero.health).to.equal(90);
   });
 });
 

@@ -9,7 +9,11 @@ Hero.prototype = {
     return 'My name is ' + this.name + '.';
   },
   eat: function(food){
-    this.health += food.energy;
+    if(this.favouriteFood === food.name){
+      this.health += (food.energy * 1.5);
+    } else{
+      this.health += food.energy;
+    };
   }
 };
 
@@ -21,6 +25,8 @@ var Food = function(name, energy){
 }
 
 var food1 = new Food('cheese', 50);
+var food2 = new Food('pasta', 20);
 
 module.exports.gary = hero1;
 module.exports.cheese = food1;
+module.exports.pasta = food2;
