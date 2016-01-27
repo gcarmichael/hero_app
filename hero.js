@@ -12,4 +12,12 @@ Hero.prototype = {
 
 var hero1 = new Hero('Gary', 10, 'pasta');
 
-module.exports.hero = hero1;
+var Food = function(name, energy){
+  this.name = name;
+  this.energy = energy;
+}
+
+var food1 = new Food('cheese', 50);
+
+module.exports.gary = hero1;
+module.exports.cheese = food1;
