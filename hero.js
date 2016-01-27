@@ -19,7 +19,11 @@ Hero.prototype = {
     };
   },
   attack: function(rat){
-    rat.health -= 100;
+    if(this.wererat === true){
+      rat.health += 100;
+    } else{
+      rat.health -= 100;
+    };
   }
 };
 

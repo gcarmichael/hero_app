@@ -29,8 +29,15 @@ describe('Hero', function(){
     expect(hero.health).to.equal(85);
   });
   it('should be able to attack rats', function(){
+    henry.health = 1000;
     hero.attack(henry);
     expect(henry.health).to.equal(900);
+  });
+  it('should, if they become a wererat, instead return health to the rat upon attacking', function(){
+    hero.wererat = true;
+    henry.health = 900;
+    hero.attack(henry);
+    expect(henry.health).to.equal(1000);
   });
 });
 
