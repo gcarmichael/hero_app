@@ -1,8 +1,9 @@
 var expect = require('chai').expect;
 var hero = require('./hero').gary;
-var cheese = require('./hero').cheese;
-var pasta = require('./hero').pasta;
-var rat = require('./rat').rat
+var cheese = require('./food').cheese;
+var pasta = require('./food').pasta;
+var rat = require('./rat').rat;
+var iceCream = require('./food').iceCream;
 
 describe('Hero', function(){
   it('should have a name, health, and favourite food', function(){
@@ -32,5 +33,10 @@ describe('Rat', function(){
   it('should have health and a name', function(){
       expect(rat.name).to.equal('Henry');
       expect(rat.health).to.equal(1000);
+  });
+  it('should be able to touch food and poison it', function(){
+    rat.touch(iceCream);
+    console.log(iceCream);
+    expect(iceCream.poisoned).to.equal(true);
   });
 });
